@@ -44,12 +44,18 @@ class ProjectHeaderHelper extends Base
             'project_id' => $project['id'],
             'search' => $this->getSearchQuery($project),
         );
-
+    
+        $projects_list = [];
+        foreach($this->projectModel->getAll() as $projectItem){
+            $projects_list[$projectItem['id']] = $projectItem['name'];
+        }
+        
         return $this->template->render('project_header/header', array(
             'project' => $project,
             'filters' => $filters,
             'categories_list' => $this->categoryModel->getList($project['id'], false),
             'users_list' => $this->projectUserRoleModel->getAssignableUsersList($project['id'], false),
+            'projects_list' => $projects_list,
             'custom_filters_list' => $this->customFilterModel->getAll($project['id'], $this->userSession->getId()),
             'board_view' => $boardView,
         ));

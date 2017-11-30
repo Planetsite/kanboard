@@ -22,12 +22,27 @@
                 </div>
             </div>
             <?php endif ?>
+    
+            <?php if (isset($projects_list) && ! empty($projects_list)): ?>
+            <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="<?= t('Filtri Cliente') ?>"><i class="fa fa-cubes fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="project:"><?= t('Tutti i Clienti') ?></a></li>
+                        <?php foreach ($projects_list as $project): ?>
+                            <li><a href="#" class="filter-helper" data-unique-filter='project:"<?= $this->text->e($project) ?>"'><?= $this->text->e($project) ?></a></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+            <?php endif ?>
 
             <?php if (isset($users_list)): ?>
             <div class="input-addon-item">
                 <div class="dropdown">
                     <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="<?= t('User filters') ?>"><i class="fa fa-users fa-fw"></i> <i class="fa fa-caret-down"></i></a>
                     <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:"><?= t('Tutti gli Utenti') ?></a></li>
                         <li><a href="#" class="filter-helper" data-unique-filter="assignee:nobody"><?= t('Not assigned') ?></a></li>
                         <?php foreach ($users_list as $user): ?>
                             <li><a href="#" class="filter-helper" data-unique-filter='assignee:"<?= $this->text->e($user) ?>"'><?= $this->text->e($user) ?></a></li>
@@ -42,6 +57,7 @@
                 <div class="dropdown">
                     <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="<?= t('Category filters') ?>"><i class="fa fa-tags fa-fw"></i><i class="fa fa-caret-down"></i></a>
                     <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="category:"><?= t('Tutte le Categorie') ?></a></li>
                         <li><a href="#" class="filter-helper" data-unique-filter="category:none"><?= t('No category') ?></a></li>
                         <?php foreach ($categories_list as $category): ?>
                             <li><a href="#" class="filter-helper" data-unique-filter='category:"<?= $this->text->e($category) ?>"'><?= $this->text->e($category) ?></a></li>

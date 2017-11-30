@@ -15,7 +15,7 @@
         <legend><?= t('General') ?></legend>
 
         <?= $this->form->label(t('Name'), 'name') ?>
-        <?= $this->form->text('name', $values, $errors, array('required', 'maxlength="50"', 'autofocus', 'tabindex="1"')) ?>
+        <?= $this->form->text('name', $values, $errors, array('required', 'maxlength="255"', 'autofocus', 'tabindex="1"')) ?>
 
         <?= $this->form->label(t('Email'), 'email') ?>
         <?= $this->form->email('email', $values, $errors, array('maxlength="255"', 'tabindex="2"')) ?>
