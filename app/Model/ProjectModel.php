@@ -334,6 +334,7 @@ class ProjectModel extends Base
         $values['last_modified'] = time();
         $values['is_private'] = empty($values['is_private']) ? 0 : 1;
         $values['owner_id'] = $user_id;
+        $values['show_default_swimlane'] = 0;
 
         if (! empty($values['identifier'])) {
             $values['identifier'] = strtoupper($values['identifier']);
