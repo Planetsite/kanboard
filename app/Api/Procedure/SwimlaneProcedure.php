@@ -48,18 +48,22 @@ class SwimlaneProcedure extends BaseProcedure
         return $this->swimlaneModel->getDefault($project_id);
     }
 
-    public function addSwimlane($project_id, $name, $description = '')
+    public function addSwimlane($project_id, $name, $description = '', $identifier = '')
     {
         ProjectAuthorization::getInstance($this->container)->check($this->getClassName(), 'addSwimlane', $project_id);
-        return $this->swimlaneModel->create(array('project_id' => $project_id, 'name' => $name, 'description' => $description));
+        return $this->swimlaneModel->create(array('project_id' => $project_id, 'name' => $name, 'description' => $description, 'identifier' => $identifier));
     }
 
-    public function updateSwimlane($swimlane_id, $name, $description = null)
+    public function updateSwimlane($swimlane_id, $name, $description = null, $identifier = null)
     {
         $values = array('id' => $swimlane_id, 'name' => $name);
 
         if (!is_null($description)) {
             $values['description'] = $description;
+        }
+    
+        if (!is_null($identifier)) {
+            $values['identifier'] = $identifier;
         }
 
         return $this->swimlaneModel->update($values);

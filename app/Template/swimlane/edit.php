@@ -12,8 +12,11 @@
     <?= $this->form->label(t('Name'), 'name') ?>
     <?= $this->form->text('name', $values, $errors, array('autofocus', 'required', 'maxlength="50"', 'tabindex="1"')) ?>
 
+    <?= $this->form->label(t('Identifier'), 'identifier') ?>
+    <?= $this->form->text('identifier', $values, $errors, array('maxlength="50"', 'tabindex="2"')) ?>
+
     <?= $this->form->label(t('Description'), 'description') ?>
-    <?= $this->form->textEditor('description', $values, $errors, array('tabindex' => 2)) ?>
+    <?= $this->form->textEditor('description', $values, $errors, array('tabindex' => 3)) ?>
 
     <?= $this->modal->submitButtons() ?>
 </form>

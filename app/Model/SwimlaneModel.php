@@ -180,7 +180,7 @@ class SwimlaneModel extends Base
     {
         $swimlanes = $this->db
             ->table(self::TABLE)
-            ->columns('id', 'name', 'description')
+            ->columns('id', 'name', 'description', 'identifier')
             ->eq('project_id', $project_id)
             ->eq('is_active', self::ACTIVE)
             ->orderBy('position', 'asc')

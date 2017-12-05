@@ -6,7 +6,12 @@ use Kanboard\Core\Security\Token;
 use Kanboard\Core\Security\Role;
 use PDO;
 
-const VERSION = 111;
+const VERSION = 112;
+
+function version_112(PDO $pdo)
+{
+    $pdo->exec('ALTER TABLE "swimlanes" ADD COLUMN identifier TEXT');
+}
 
 function version_111(PDO $pdo)
 {
