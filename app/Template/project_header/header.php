@@ -12,6 +12,7 @@
             'project' => $project,
             'filters' => $filters,
             'custom_filters_list' => isset($custom_filters_list) ? $custom_filters_list : array(),
+            'columns_list' => isset($columns_list) ? $columns_list : array(),
             'projects_list' => isset($projects_list) ? $projects_list : array(),
             'users_list' => isset($users_list) ? $users_list : array(),
             'categories_list' => isset($categories_list) ? $categories_list : array(),

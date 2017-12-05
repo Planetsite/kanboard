@@ -26,7 +26,7 @@
             <?php if (isset($projects_list) && ! empty($projects_list)): ?>
             <div class="input-addon-item">
                 <div class="dropdown">
-                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="<?= t('Filtri Cliente') ?>"><i class="fa fa-cubes fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="<?= t('Filtro Cliente') ?>"><i class="fa fa-cubes fa-fw"></i><i class="fa fa-caret-down"></i></a>
                     <ul>
                         <li><a href="#" class="filter-helper" data-unique-filter="project:"><?= t('Tutti i Clienti') ?></a></li>
                         <?php foreach ($projects_list as $project): ?>
@@ -50,6 +50,20 @@
                     </ul>
                 </div>
             </div>
+            <?php endif ?>
+    
+            <?php if (isset($columns_list) && ! empty($columns_list)): ?>
+                <div class="input-addon-item">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="<?= t('Filtro Fase') ?>"><i class="fa fa-clock-o fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li><a href="#" class="filter-helper" data-unique-filter="column:"><?= t('Tutte le Fasi') ?></a></li>
+                            <?php foreach ($columns_list as $column): ?>
+                                <li><a href="#" class="filter-helper" data-unique-filter='column:"<?= $this->text->e($column) ?>"'><?= $this->text->e($column) ?></a></li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                </div>
             <?php endif ?>
 
             <?php if (isset($categories_list) && ! empty($categories_list)): ?>

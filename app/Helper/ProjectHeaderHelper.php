@@ -45,9 +45,17 @@ class ProjectHeaderHelper extends Base
             'search' => $this->getSearchQuery($project),
         );
     
+        $firstProject = null;
+        
         $projects_list = [];
         foreach($this->projectModel->getAll() as $projectItem){
+            $firstProject = $projectItem;
             $projects_list[$projectItem['id']] = $projectItem['name'];
+        }
+    
+        $columns_list = [];
+        foreach($this->columnModel->getAll($firstProject['id']) as $columnItem){
+            $columns_list[$columnItem['id']] = $columnItem['title'];
         }
         
         return $this->template->render('project_header/header', array(
@@ -55,6 +63,7 @@ class ProjectHeaderHelper extends Base
             'filters' => $filters,
             'categories_list' => $this->categoryModel->getList($project['id'], false),
             'users_list' => $this->projectUserRoleModel->getAssignableUsersList($project['id'], false),
+            'columns_list' => $columns_list,
             'projects_list' => $projects_list,
             'custom_filters_list' => $this->customFilterModel->getAll($project['id'], $this->userSession->getId()),
             'board_view' => $boardView,
