@@ -183,7 +183,8 @@ class SwimlaneModel extends Base
             ->columns('id', 'name', 'description', 'identifier')
             ->eq('project_id', $project_id)
             ->eq('is_active', self::ACTIVE)
-            ->orderBy('position', 'asc')
+            //->orderBy('position', 'asc')
+            ->orderBy('name', 'asc')
             ->findAll();
 
         $defaultSwimlane = $this->db
